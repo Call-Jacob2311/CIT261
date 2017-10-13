@@ -1,0 +1,6 @@
+{
+    "name":"F1reB4ll Wizard",
+    "level":50,
+    "race":"Human",
+    "class":"Wizard"
+}

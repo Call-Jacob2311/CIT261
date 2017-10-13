@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date: 10/3/2017
+Subject: XMLHTTP REQUEST / JSON Web Service
+Description: This document will demonstrate the uses of the XMLHTTP REQEST function to consume a JSON web service
+- JSON is used to exchange data to/from a web server.
+- When you receive data from the server is will always come back as a STRING.
+- All modern browsers have a built-in XMLHttpRequest object to request data from a server.
+- The XMLHttpRequest object is a developers dream, because you can:
+* Update a web page without reloading the page
+* Request data from a server - after the page has loaded
+* Receive data from a server  - after the page has loaded
+* Send data to a server - in the background
+-->
+<html>
+    <head>
+        <title>XML / HTTP REQUEST</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">         
+    </head>
+    <body>   
+        <div id="demostration_1">
+            <h2>Using the XMLHttpRequest Object</h2>
+            <!--
+            - This will display the name of our character, his class, and his stats.
+            - We are going to request a JSON object that has been parsed using a AJAX request.
+            - Once it is an object we will display back to user their character.
+             -->
+            <p id="demo_object_1"></p>
+            
+            <script> 
+                // The first line in the example above creates an XMLHttpRequest object:
+                var xmlhttp = new XMLHttpRequest();
+                // The onreadystatechange property specifies a function to be executed every time the status of the XMLHttpRequest object changes:
+                xmlhttp.onreadystatechange = function() {
+                // When readyState property is 4 and the status property is 200, the response is ready:
+                // Different values tell the server different things.
+                if (this.readyState == 4 && this.status == 200) {
+                    var userChar = JSON.parse(this.responseText);
+                    // The responseText property returns the server response as a text string.
+                    //The text string can be used to update a web page:
+                    document.getElementById("demo_object_1").innerHTML = userChar.name + "<br>"
+                            + userChar.level + "<br>" + userChar.race + "<br>" + userChar.class + "<br>";
+                }
+            };
+                xmlhttp.open("GET", "user_character.txt", true);
+                xmlhttp.send();
+            </script>                
+        </div>                             
+    </body>
+</html>
