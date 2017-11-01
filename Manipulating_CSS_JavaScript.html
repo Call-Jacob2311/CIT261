@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/28/2017
+Last updated: 10/28/2017
+Title: Manipulating CSS using Javascript
+-->
+<html>
+    <head>
+        <title>Manipulating CSS using Javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="github_style.css">
+    </head>
+    <body id="change">
+        <div id="main_body">
+            <h1 id="title">THE AMAZING SAMPLE TITLE</h1>
+            <p id="text">SOME AMAZING TEXT THAT IS GOING TO CHANGE COLORS RIGHT BEFORE YOUR VERY EYES</p>
+            <p>CHANGE THE THEME OF THE PAGE IN A INSTANT</p>
+            <button type="button" id="light" value="Light" onclick="change_light()">Light</button>
+            <button type="button" id="dark" value="Dark" onclick="change_dark()">Dark</button>
+        </div>
+        <script>
+            function change_light() {
+                document.getElementById("title").style.color = "white";
+                document.getElementById("text").style.color = "white";
+                document.getElementById("main_body").style.backgroundColor = "yellow";
+        }
+        function change_dark() {
+                document.getElementById("title").style.color = "black";
+                document.getElementById("text").style.color = "black";
+                document.getElementById("main_body").style.backgroundColor = "Gray";
+        }
+        </script>
+    </body>
+</html>
