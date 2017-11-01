@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/30/2017
+Last updated: 10/30/2017
+Title: HTML5 tags - Video, Audio, Canvas
+-->
+<html>
+    <head>
+        <title>HTML5 tags - Video, Audio, Canvas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="github_style.css"> 
+    </head>
+    <body>
+        <div id="main_body">
+            <div id="video">
+                <h1>Video Tag</h1>
+                <video controls autoplay loop>
+                    <source src="jojo_meme.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h4>The video tag specifies video, such as a movie clip or other video streams.</h4>
+                <h4>Currently, there are 3 supported video formats for the video element: MP4, WebM, and Ogg:</h4>
+                <h5>Attributes: 
+                    <ul>
+                        <li>autoplay - Specifies that the video will start playing as soon as it is ready</li>
+                        <li>controls - Specifies that video controls should be displayed (such as a play/pause button etc).</li>
+                        <li>height - Sets the height of the video player</li>
+                        <li>loop - Specifies that the video will start over again, every time it is finished</li>
+                        <li>muted - Specifies that the audio output of the video should be muted</li>
+                        <li>poster - Specifies an image to be shown while the video is downloading, or until the user hits the play button</li>
+                        <li>preload - Specifies if and how the author thinks the video should be loaded when the page loads</li>
+                        <li>width - Sets the width of the video player</li>
+                    </ul>
+                </h5>
+            </div>
+            <div id="audio">
+                <h1>Audio Tag</h1>
+                <audio controls>
+                    <source src="berserk.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <h4>The audio tag defines sound, such as music or other audio streams.</h4>
+                <h4>Currently, there are 3 supported file formats for the <audio> element: MP3, Wav, and Ogg:</h4>
+                <h5>Attributes: 
+                    <ul>
+                        <li>autoplay - Specifies that the video will start playing as soon as it is ready</li>
+                        <li>controls - Specifies that video controls should be displayed (such as a play/pause button etc).</li>
+                        <li>loop - Specifies that the video will start over again, every time it is finished</li>
+                        <li>muted - Specifies that the audio output of the video should be muted</li>
+                        <li>preload - Specifies if and how the author thinks the video should be loaded when the page loads</li>
+                    </ul>
+                </h5>
+            </div>
+            <div id="canvas">
+                <h1>Canvas Tag</h1>
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+                <h4>The HTML canvas element is used to draw graphics, on the fly, via JavaScript.</h4>
+                <h4>The canvas element is only a container for graphics. You must use JavaScript to actually draw the graphics.</h4>
+                <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
+                <br>
+                <button type="button" onclick="draw_line()">Line</button>
+                <button type="button" onclick="draw_circle()">Circle</button>
+                <button type="button" onclick="draw_words()">Bases?</button>
+                <button type="button" onclick="clear()">Clear</button>
+
+
+                <script>
+                    function draw_line() {
+                        var c = document.getElementById("myCanvas1");
+                        var ctx = c.getContext("2d");
+                        ctx.moveTo(0,0);
+                        ctx.lineTo(200,100);
+                        ctx.stroke();
+                     }
+                </script>
+                <script>
+                    function draw_circle() {
+                        var c = document.getElementById("myCanvas1");
+                        var ctx = c.getContext("2d");
+                        ctx.beginPath();
+                        ctx.arc(95,50,40,0,2*Math.PI);
+                        ctx.stroke();
+                     }
+                </script>
+                <script>
+                    function draw_words() {
+                        var c = document.getElementById("myCanvas1");
+                        var ctx = c.getContext("2d");
+                        ctx.font = "12px Arial";
+                        ctx.strokeText("All your bases are now belong to us",10,50);
+                    }
+                </script>
+                <script>
+                    function clear() {
+                        var canvas = document.getElementById('myCanvas1');
+                        var context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                     }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
