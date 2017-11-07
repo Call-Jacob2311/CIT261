@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date: 11/03/2017
+Subject: Local Storage
+Description: This document will demonstrate the uses of the Local Storage API
+- JSON is used to exchange data to/from a web server.
+- Before HTML5, application data had to be stored in cookies, included in every server request. 
+- Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.
+- All modern browsers have a built-in XMLHttpRequest object to request data from a server.
+- Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+- Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
+-->
+<html>
+    <head>
+        <title>Local Storage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        <link rel="stylesheet" href="github_style.css">
+    </head>
+    <body>   
+        <div id="main_body">
+        <div id="localStorage">
+            <!--
+            - HTML web storage provides two objects for storing data on the client:
+                * window.localStorage - stores data with no expiration date
+                * window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+            -->
+            <h2>Local Storage - Storing and retrieving simple data</h2>
+            <h4>This first demonstration will store and retrieve the data in two different ways.</h4>
+            <p id="demo_object_1"></p>
+            <p id="demo_object_2"></p>
+            
+            <script> 
+            // First way to store and retreive data.
+            // Check browser support
+            if (typeof(Storage) !== "undefined") {
+                // Store
+                localStorage.setItem("lastname", "Call");
+                // Retrieve
+                document.getElementById("demo_object_1").innerHTML = localStorage.getItem("lastname");
+            } else {
+                document.getElementById("demo_object_1").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+            
+            // The second way of stroing and retrieving data.
+            // Store
+            localStorage.firstname = "Jacob";
+            // Retrieve
+            document.getElementById("demo_object_2").innerHTML = localStorage.firstname;
+            // Syntax for deleting / localStorage.removeItem("lastname");
+            </script>   
+        </div>
+            
+        <div id="sessionStorage">
+            <!--
+            - The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. 
+            - The data is deleted when the user closes the specific browser tab.
+            -->
+            <h2>Session Storage - The notorious 'Cookie Clicker'</h2>
+            <h4>This demonstration will create a new session object, 
+                then keep track of how many cookies the user generated in the session.</h4>
+            <h4>Masterfully bake a cookie at a click of a button.</h4>
+            <br>
+            <button onclick="clickCounter()" type="button">Bake a Cookie</button>
+            <p id="demo_object_3"></p>
+        </div>
+        <script>
+            function clickCounter() {
+                if(typeof(Storage) !== "undefined") {
+                    if (sessionStorage.clickcount) {
+                        sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+                    } else {
+                        sessionStorage.clickcount = 1;
+                    }
+                    document.getElementById("demo_object_3").innerHTML = "You have " + sessionStorage.clickcount + " cookies in this session.";
+                } else {
+                    document.getElementById("demo_object_3").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            }
+        </script>
+        
+        <div id="local_storage_arrays">
+            <!--
+            - The sessionStorage object is equal to the localStorage object, except that it stores the data for only one session. 
+            - The data is deleted when the user closes the specific browser tab.
+            -->
+            <h2>Local Storage - Arrays</h2>
+            <h4>Simply going to display storing info into an array using local storage and retrieving it.</h4>
+            <p id="demo_object_4"></p>
+        </div>
+        <script>
+            if (typeof(Storage) !== "undefined") {
+            var names = [];
+            names[0] = prompt("New member name?");
+            localStorage.setItem("names", JSON.stringify(names));
+            //...
+            var storedNames = JSON.parse(localStorage.getItem("names"));
+            document.getElementById("demo_object_4").innerHTML = storedNames;
+            } else {
+                document.getElementById("demo_object_4").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        </script>
+    </div>
+    </body>
+</html>
