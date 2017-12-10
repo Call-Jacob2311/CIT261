@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/15/2017
+Last modified: 10/25/2017
+
+Index page for my CIT 261 class's source code. Uses GitHub pages as a domain.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="sticky-nav">
+        <div class="flex-header">
+            <div id="title-header">
+                <h1>Jacob Call</h1>
+            </div>
+            
+            <div id="nav-header">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../group.html">Group</a></li>
+                    <li><a href="../journal.html">Journal</a></li>
+                </ul>
+            </div>
+            
+            <script>
+                window.onscroll = function() {myFunction()};
+
+                var navbar = document.getElementById("sticky-nav");
+                var sticky = navbar.offsetTop;
+
+                function myFunction() {
+                  if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                  } else {
+                    navbar.classList.remove("sticky");
+                  }
+                }
+            </script>
+            
+            <div id="account-header">
+                <img src="account-logo.png" alt="The account logo photo" id="account-logo">
+            </div>
+        </div>
+        
+        <div class="flex-announcement">
+            <div id="announcement-banner">
+                <h3><a href="../boxize.html">The Final Project App is Located Here!</a></h3>
+            </div>
+        </div>
+        </div>
+        
+        <div id="main-content">
+            <h2>Topic Two: Objects, Functions, Inheritance, Properties, Methods, Instantiation</h2>
+            <div id="display_objectcreation">
+                <h1>Display the Object creation using a function.</h1>
+                <p id="display_object_creation"></p>
+                <script>
+                    function user(first, last, age, id) {
+                        this.firstName = first;
+                        this.lastName = last;
+                        this.age = age;
+                        this.id = id;
+                    }
+
+                    var userOne = new user("Jacob", "Call", 22, 1);
+                    var userTwo = new user("Brit", "Rain", 21, 2);
+
+                    document.getElementById("display_object_creation").innerHTML =
+                    "User One: " + userOne.firstName + " " + userOne.lastName + ", " + userOne.age + ", "
+                    + userOne.id + "</br >" + "User Two: " + userTwo.firstName + " " + userTwo.lastName + ", " + userTwo.age + ", "
+                    + userTwo.id;
+                </script>
+            </div>
+            
+            <div id="display_objectmethod">
+                <h1>Display the Object method in use.</h1>
+                <p id="display_object_method"></p>
+                <script>
+                    var user = {
+                        firstName: "Jacob",
+                        lastName : "Call",
+                        id       : 1,
+                        fullName : function() {
+                           return this.firstName + " " + this.lastName;
+                        }
+                    };
+                    document.getElementById("display_object_method").innerHTML = user.fullName();
+                </script>
+            </div>    
+        </div>    
+        
+        <div class="flex-footer">
+            <div id="footer">
+                <h5>THIS WEBSITE AND ALL OF ITS CODE WAS USED FOR SCHOOL.</h5>
+                <h5>CODE WAS WRITTEN BY JACOB CALL.</h5>
+                <h5>ALL IMAGES, SOUNDS, LINKS, ETC ARE NOT OWNED AND USED STRICTLY FOR SCHOOL PURPOSES.</h5>
+            </div>    
+        </div>
+    </body>
+</html>

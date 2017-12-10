@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/15/2017
+Last modified: 10/25/2017
+
+Index page for my CIT 261 class's source code. Uses GitHub pages as a domain.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="sticky-nav">
+        <div class="flex-header">
+            <div id="title-header">
+                <h1>Jacob Call</h1>
+            </div>
+            
+            <div id="nav-header">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../group.html">Group</a></li>
+                    <li><a href="../journal.html">Journal</a></li>
+                </ul>
+            </div>
+            
+            <script>
+                window.onscroll = function() {myFunction()};
+
+                var navbar = document.getElementById("sticky-nav");
+                var sticky = navbar.offsetTop;
+
+                function myFunction() {
+                  if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                  } else {
+                    navbar.classList.remove("sticky");
+                  }
+                }
+            </script>
+            
+            <div id="account-header">
+                <img src="account-logo.png" alt="The account logo photo" id="account-logo">
+            </div>
+        </div>
+        
+        <div class="flex-announcement">
+            <div id="announcement-banner">
+                <h3><a href="../boxize.html">The Final Project App is Located Here!</a></h3>
+            </div>
+        </div>
+        </div>
+        
+        <div id="main-content">
+            <h2>Topic Three: JSON Parse & STRINGIFY</h2>
+            <div id="demostration_1">
+            <h2>Create Character Object from JSON String</h2>
+                <!--
+                - This will display the name of our character, his class, and his stats.
+                - For now we are directly going to create an object and parse a string of our characters information into that object.
+                -->
+                <p id="demo_object_1"></p>
+            
+        <!--
+        - This first script will create our character object and parse the string of stats into it.
+        - Then we will call the demo_display_1 and store our characters information into it for display.
+        -->
+            <script>
+                var character = JSON.parse('{ "name":"Troll_Slayer_42", "level":30, "race":"Elf", "class":"Warrior"}');
+                document.getElementById("demo_object_1").innerHTML = character.name + "<br>" + character.level + "<br>"
+                        + character.race + "<br>" + character.class;
+            </script>
+        </div>
+        
+        <div id="demostration_2">
+            <h2>Use the XMLHttpRequest to get the content of a file.</h2>
+            <!--
+            - This will display the name of our character, his class, and his stats.
+            - We are going to request a JSON object that has been parsed using a AJAX request.
+            - Once it is an object we will display back to user their character.
+             -->
+            <p id="demo_object_2"></p>
+            
+            <script>
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var userChar = JSON.parse(this.responseText);
+                    document.getElementById("demo_object_2").innerHTML = userChar.name + "<br>"
+                            + userChar.level + "<br>" + userChar.race + "<br>" + userChar.class + "<br>";
+                }
+            };
+                xmlhttp.open("GET", "user_character.txt", true);
+                xmlhttp.send();
+            </script>
+            
+            
+        </div>
+        
+        <div>
+            <!--
+            - You can parse arrays. It would be simple since a array is a string of values.
+            - You cannot pass functions. If you need to pass a function it has to be inside a string.
+            - { "name":"King_lorship", "level":"function() {return 100;}", "class":"Paladin", "race":"Orc"}'
+            -->
+        </div>
+        
+        <div id="Demostration_3">
+            <h2>Create JSON string from a JavaScript object.</h2>
+            <!--
+             - This will display the name of our character, his class, and his stats.
+             - We are going to create an object, then use the JSON.STRINGIFY() function to change it into a string and display.
+             -->
+             
+             <p id="demo_object_3"></p>
+             
+            <script>
+                var userCharacter = { "name":"Galiaz the Destroyer", "level":"100+", "race":"Demon", "class":"Warlock"};
+                var myJSON = JSON.stringify(userCharacter);
+                document.getElementById("demo_object_3").innerHTML = myJSON;
+            </script> 
+        </div>
+        
+        
+        <!--
+        - Use stringify to display a function or some code.
+        -->
+        <div id="demostration_4">
+            <h2>Use the XMLHttpRequest to get the contents of a file and display as a string.</h2>
+            <!--
+            - This will display the name of our character, his class, and his stats.
+            - We are going to request a JSON object that has been parsed using a AJAX request.
+            - Once it is an object we will display back to user their character.
+             -->
+            <p id="demo_object_4"></p>
+            
+            <script>
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var userString = JSON.stringify(this.responseText);
+                    document.getElementById("demo_object_4").innerHTML = userString;
+                }
+            };
+                xmlhttp.open("GET", "user_character.txt", true);
+                xmlhttp.send();
+            </script>
+        </div>    
+        </div>    
+        
+        <div class="flex-footer">
+            <div id="footer">
+                <h5>THIS WEBSITE AND ALL OF ITS CODE WAS USED FOR SCHOOL.</h5>
+                <h5>CODE WAS WRITTEN BY JACOB CALL.</h5>
+                <h5>ALL IMAGES, SOUNDS, LINKS, ETC ARE NOT OWNED AND USED STRICTLY FOR SCHOOL PURPOSES.</h5>
+            </div>    
+        </div>
+    </body>
+</html>

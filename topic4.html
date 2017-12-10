@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/15/2017
+Last modified: 10/25/2017
+
+Index page for my CIT 261 class's source code. Uses GitHub pages as a domain.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="sticky-nav">
+        <div class="flex-header">
+            <div id="title-header">
+                <h1>Jacob Call</h1>
+            </div>
+            
+            <div id="nav-header">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../group.html">Group</a></li>
+                    <li><a href="../journal.html">Journal</a></li>
+                </ul>
+            </div>
+            
+            <script>
+                window.onscroll = function() {myFunction()};
+
+                var navbar = document.getElementById("sticky-nav");
+                var sticky = navbar.offsetTop;
+
+                function myFunction() {
+                  if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                  } else {
+                    navbar.classList.remove("sticky");
+                  }
+                }
+            </script>
+            
+            <div id="account-header">
+                <img src="account-logo.png" alt="The account logo photo" id="account-logo">
+            </div>
+        </div>
+        
+        <div class="flex-announcement">
+            <div id="announcement-banner">
+                <h3><a href="../boxize.html">The Final Project App is Located Here!</a></h3>
+            </div>
+        </div>
+        </div>
+        
+        <div id="main-content">
+            <h2>Topic Four: XMLHTTP REQUEST</h2>
+             <div id="demostration_1">
+            <h2>Using the XMLHttpRequest Object</h2>
+            <!--
+            - This will display the name of our character, his class, and his stats.
+            - We are going to request a JSON object that has been parsed using a AJAX request.
+            - Once it is an object we will display back to user their character.
+             -->
+            <p id="demo_object_1"></p>
+            
+            <script> 
+                // The first line in the example above creates an XMLHttpRequest object:
+                var xmlhttp = new XMLHttpRequest();
+                // The onreadystatechange property specifies a function to be executed every time the status of the XMLHttpRequest object changes:
+                xmlhttp.onreadystatechange = function() {
+                // When readyState property is 4 and the status property is 200, the response is ready:
+                // Different values tell the server different things.
+                if (this.readyState == 4 && this.status == 200) {
+                    var userChar = JSON.parse(this.responseText);
+                    // The responseText property returns the server response as a text string.
+                    //The text string can be used to update a web page:
+                    document.getElementById("demo_object_1").innerHTML = userChar.name + "<br>"
+                            + userChar.level + "<br>" + userChar.race + "<br>" + userChar.class + "<br>";
+                }
+            };
+                xmlhttp.open("GET", "user_character.txt", true);
+                xmlhttp.send();
+            </script>                
+        </div>   
+        </div>    
+        
+        <div class="flex-footer">
+            <div id="footer">
+                <h5>THIS WEBSITE AND ALL OF ITS CODE WAS USED FOR SCHOOL.</h5>
+                <h5>CODE WAS WRITTEN BY JACOB CALL.</h5>
+                <h5>ALL IMAGES, SOUNDS, LINKS, ETC ARE NOT OWNED AND USED STRICTLY FOR SCHOOL PURPOSES.</h5>
+            </div>    
+        </div>
+    </body>
+</html>

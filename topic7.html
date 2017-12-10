@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+Author: Jacob Call
+Date Created: 10/15/2017
+Last modified: 10/25/2017
+
+Index page for my CIT 261 class's source code. Uses GitHub pages as a domain.
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body id="change">
+        <div id="sticky-nav">
+        <div class="flex-header">
+            <div id="title-header">
+                <h1>Jacob Call</h1>
+            </div>
+            
+            <div id="nav-header">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../group.html">Group</a></li>
+                    <li><a href="../journal.html">Journal</a></li>
+                </ul>
+            </div>
+            
+            <script>
+                window.onscroll = function() {myFunction()};
+
+                var navbar = document.getElementById("sticky-nav");
+                var sticky = navbar.offsetTop;
+
+                function myFunction() {
+                  if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                  } else {
+                    navbar.classList.remove("sticky");
+                  }
+                }
+            </script>
+            
+            <div id="account-header">
+                <img src="account-logo.png" alt="The account logo photo" id="account-logo">
+            </div>
+        </div>
+        
+        <div class="flex-announcement">
+            <div id="announcement-banner">
+                <h3><a href="../boxize.html">The Final Project App is Located Here!</a></h3>
+            </div>
+        </div>
+        </div>
+        
+        <div id="main-content">
+            <h2>Topic Seven: Manipulating CSS Class Properties Using JavaScript</h2>
+            <h1 id="title">THE AMAZING SAMPLE TITLE</h1>
+            <p id="text">SOME AMAZING TEXT THAT IS GOING TO CHANGE COLORS RIGHT BEFORE YOUR VERY EYES</p>
+            <p>CHANGE THE THEME OF THE PAGE IN A INSTANT</p>
+            <button type="button" id="light" value="Light" onclick="change_light()">Light</button>
+            <button type="button" id="dark" value="Dark" onclick="change_dark()">Dark</button>
+        </div>
+        <script>
+            function change_light() {
+                document.getElementById("title").style.color = "white";
+                document.getElementById("text").style.color = "white";
+                document.getElementById("main_body").style.backgroundColor = "yellow";
+        }
+        function change_dark() {
+                document.getElementById("title").style.color = "black";
+                document.getElementById("text").style.color = "black";
+                document.getElementById("main_body").style.backgroundColor = "Gray";
+        }
+        </script>    
+        </div>    
+        
+        <div class="flex-footer">
+            <div id="footer">
+                <h5>THIS WEBSITE AND ALL OF ITS CODE WAS USED FOR SCHOOL.</h5>
+                <h5>CODE WAS WRITTEN BY JACOB CALL.</h5>
+                <h5>ALL IMAGES, SOUNDS, LINKS, ETC ARE NOT OWNED AND USED STRICTLY FOR SCHOOL PURPOSES.</h5>
+            </div>    
+        </div>
+    </body>
+</html>
