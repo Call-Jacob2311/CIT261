@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>BOXIZE</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="boxize-style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="app-header" class="center">
+            <h1>BOXIZE</h1>
+        </div>
+        
+        <div class="flex-main">
+            <div id="box-tool">
+                <h3>Create a Box!</h3>
+                <br>
+                <br>
+                <img src="create-box.png" onclick="createBox()" id="create-box-btn" alt="create box button">
+                <br>
+                <br>
+                <h3>Create a object for your box!</h3>
+                <br>
+                <img src="create-topic.png" onclick="createTopic()" id="create-topic-btn" alt="create topic button">
+                <br>
+                <br>
+                <br>
+                <div id="topic-holder">
+                    
+                </div>
+                <p>Click and Drag to any box to add a topic.</p>
+                <button type="button" onclick="removeBox()">Delete box</button>
+                <button type="button" onclick="removeTopic()">Delete Topic</button>
+            </div>
+            
+            <div id="main-container">
+
+            </div>
+        
+        </div>
+        
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+            
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+            
+            function createBox() {
+                var newDiv = document.createElement('div');
+                newDiv.setAttribute('class', 'box-style');
+                newDiv.setAttribute('id', "newBox");
+                newDiv.setAttribute('ondrop', "drop(event)");
+                newDiv.setAttribute('ondragover', "allowDrop(event)");
+                
+                var newInput = document.createElement('INPUT');
+                newInput.setAttribute("type", "text");
+                newInput.setAttribute('id', "newInput");
+                newDiv.appendChild(newInput);
+                document.getElementById("main-container").appendChild(newDiv);
+            }          
+            
+            function createTopic() {
+                var newDiv = document.createElement('div');
+                newDiv.setAttribute('class', 'box-inner-style');
+                newDiv.setAttribute('id', "drag");
+                newDiv.setAttribute('draggable', "true");
+                newDiv.setAttribute('ondragstart', "drag(event)");
+                
+                var newtopicInput = document.createElement('TEXTAREA');
+                newtopicInput.setAttribute('id', "newtopicInput");
+                newDiv.appendChild(newtopicInput);
+                document.getElementById("topic-holder").appendChild(newDiv);
+            }
+            
+            function removeBox() {
+                var deleteBox = document.getElementById("newBox");
+                deleteBox.parentNode.removeChild(deleteBox);
+            }
+            
+            function removeTopic() {
+                var deleteTopic = document.getElementById("drag");
+                deleteTopic.parentNode.removeChild(deleteTopic);
+            }
+            
+        </script>
+    </body>
+</html>
