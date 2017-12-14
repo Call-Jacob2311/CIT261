@@ -13,29 +13,50 @@ and open the template in the editor.
     </head>
     <body>
         <div id="app-header" class="center">
-            <h1>BOXIZE</h1>
+            <a href="boxize.html"><img src="title.png" alt="img"></a>
         </div>
         
         <div class="flex-main">
             <div id="box-tool">
-                <h3>Create a Box!</h3>
-                <br>
+                <div id="color-holder">
+                    <div id="changeRed" onclick="changeRed()">
+
+                    </div>
+                    
+                    <div id="changeBlue" onclick="changeBlue()">
+
+                    </div>
+                    
+                    <div id="changeGreen" onclick="changeGreen()">
+
+                    </div>
+                    
+                    <div id="changePurple" onclick="changePurple()">
+
+                    </div>
+                    
+                    <div id="changeWhite" onclick="changeWhite()">
+
+                    </div>
+                </div>
+                <h1>Create a Box!</h1>
                 <br>
                 <img src="create-box.png" onclick="createBox()" id="create-box-btn" alt="create box button">
                 <br>
                 <br>
-                <h3>Create a object for your box!</h3>
                 <br>
+                <br>
+                <h2>Create a object to put in your Box!</h2>
                 <img src="create-topic.png" onclick="createTopic()" id="create-topic-btn" alt="create topic button">
-                <br>
-                <br>
-                <br>
+                <p>Click and Drag to any box to add a topic.</p>
                 <div id="topic-holder">
                     
                 </div>
-                <p>Click and Drag to any box to add a topic.</p>
-                <button type="button" onclick="removeBox()">Delete box</button>
-                <button type="button" onclick="removeTopic()">Delete Topic</button>
+                
+                <br>
+                <br>
+                <img src="delete-box .png" alt="deletebox" onclick="removeBox()">
+                <img src="delete-topic .png" alt="deletetopic" onclick="removeTopic()">
             </div>
             
             <div id="main-container">
@@ -69,6 +90,7 @@ and open the template in the editor.
                 var newInput = document.createElement('INPUT');
                 newInput.setAttribute("type", "text");
                 newInput.setAttribute('id', "newInput");
+                newInput.setAttribute('placeholder', "Add a Name!");
                 newDiv.appendChild(newInput);
                 document.getElementById("main-container").appendChild(newDiv);
             }          
@@ -79,9 +101,11 @@ and open the template in the editor.
                 newDiv.setAttribute('id', "drag");
                 newDiv.setAttribute('draggable', "true");
                 newDiv.setAttribute('ondragstart', "drag(event)");
+                newDiv.setAttribute('ondblclick', "deleteTopic()");   
                 
                 var newtopicInput = document.createElement('TEXTAREA');
                 newtopicInput.setAttribute('id', "newtopicInput");
+                newtopicInput.setAttribute('Placeholder', "Add anything you want.");
                 newDiv.appendChild(newtopicInput);
                 document.getElementById("topic-holder").appendChild(newDiv);
             }
@@ -96,6 +120,40 @@ and open the template in the editor.
                 deleteTopic.parentNode.removeChild(deleteTopic);
             }
             
+            function getTrash() {
+                var deleteDrag = document.getElementById("trash");
+                newDiv.setAttribute('dragend', "remove()");
+            }
+            
+            function changeRed() {
+                document.getElementById("box-tool").style.backgroundColor = "#f76666";
+                document.getElementById("main-container").style.backgroundColor = "#f76666";
+            }
+            
+            function changeBlue() {
+                document.getElementById("box-tool").style.backgroundColor = "#51939a";
+                document.getElementById("main-container").style.backgroundColor = "#51939a";
+            }
+            
+            function changeGreen() {
+                document.getElementById("box-tool").style.backgroundColor = "#5ca641";
+                document.getElementById("main-container").style.backgroundColor = "#5ca641";
+            }
+            
+            function changePurple() {
+                document.getElementById("box-tool").style.backgroundColor = "#875299";
+                document.getElementById("main-container").style.backgroundColor = "#875299";
+            }
+            
+            function changeWhite() {
+                document.getElementById("box-tool").style.backgroundColor = "#838383";
+                document.getElementById("main-container").style.backgroundColor = "#838383";
+            }
+            
+            function localStorage() {
+                localStorage.setItem("savedBox", newBox);
+                document.getElementById("main-container").innerHTML = localStorage.getItem("savedBox");
+            }
         </script>
     </body>
 </html>

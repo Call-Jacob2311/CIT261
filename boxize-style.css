@@ -10,12 +10,13 @@ body {
 
 #main-container {
     width: 90%;
-    border: 1px solid black;
+    border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     position: relative;
     margin-left: 20px;
+    background-color: #838383;
 }
 
 #main-container p {
@@ -24,18 +25,18 @@ body {
 
 #box-tool {
     position: relative;
-    width: 225px;
+    width: 320px;
     height: 100%;
-    border: 1px solid black;
-    background-color: #ff9999;
+    border: 2px solid black;
+    background-color: #838383;
     text-align: center;
 }
 
 .box-style {
-    width: 400px;
-    height: 400px;
+    width: 345px;
+    height: 345px;
     border: 1px solid black;
-    background-color: red;
+    background-color: #f6b26b;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -52,12 +53,12 @@ body {
     width: 85px;
     height: 85px;
     border: 1px solid black;
-    background-color: blue;
+    background-color: #e06666;
     margin: 10px;
 }
 
 #topic-holder {
-   margin-left: 50px; 
+   margin-left: 100px; 
 }
 
 #newInput {
@@ -65,7 +66,7 @@ body {
     border: 0px solid;
     height: 20px;
     width: 100%;
-    color: #CCC;
+    color: white;
     justify-content: center;
     text-align: center;
     padding: 10px;
@@ -78,7 +79,7 @@ body {
     border: 0px solid;
     height: 83px;
     width: 83px;
-    color: #CCC;
+    color: white;
     font-size: 12px;
     font-weight: bold;
 }
@@ -105,3 +106,130 @@ body {
 	background: rgba(255,0,0,0.4); 
 }
 
+#trash {
+    border: 1px solid black;
+    width:25px;
+    height:25px;
+    
+}
+
+#box-tool {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+}
+
+#changeRed {
+    background-color: red;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#changeBlue {
+    background-color: blue;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#changeGreen {
+    background-color: green;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#changePurple {
+    background-color: purple;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#changeWhite {
+    background-color: white;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#changeGold {
+    background-color: goldenrod;
+    height: 5px;
+    width: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s;
+}
+
+#color-holder {
+    display: flex;
+    justify-content: center;
+}
+
+#changeRed:hover {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+}
+
+#changeBlue:hover {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+}
+
+#changeGreen:hover {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+}
+
+#changePurple:hover {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+}
+
+#changeWhite:hover {
+    width: 12px;
+    height: 12px;
+    border: 2px solid black;
+}
+
+#create-box-btn {
+    -webkit-transition: -webkit-transform 3s; /* Safari */
+    transition: transform 3s;
+}
+
+#create-box-btn:hover {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+}
+
+#create-topic-btn {
+    -webkit-transition: -webkit-transform 3s; /* Safari */
+    transition: transform 3s;
+}
+
+#create-topic-btn:hover {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+}
