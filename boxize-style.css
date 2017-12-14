@@ -16,7 +16,7 @@ body {
     justify-content: center;
     position: relative;
     margin-left: 20px;
-    background-color: #838383;
+    background-color: #a19ea2;
 }
 
 #main-container p {
@@ -28,7 +28,7 @@ body {
     width: 320px;
     height: 100%;
     border: 2px solid black;
-    background-color: #838383;
+    background-color: #a19ea2;
     text-align: center;
 }
 
@@ -160,17 +160,7 @@ body {
 }
 
 #changeWhite {
-    background-color: white;
-    height: 5px;
-    width: 5px;
-    border: 1px solid black;
-    margin: 7px;
-    -webkit-transition: width 0.4s, height 0.4s; /* For Safari 3.1 to 6.0 */
-    transition: width 0.4s, height 0.4s;
-}
-
-#changeGold {
-    background-color: goldenrod;
+    background-color: whitesmoke;
     height: 5px;
     width: 5px;
     border: 1px solid black;
